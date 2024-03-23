@@ -8,7 +8,7 @@
       package: 
         name: 
           - htop
-          - cowsay
+            #:- cowsay
           - stow
           - python3-psutil
 
