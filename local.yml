@@ -4,6 +4,6 @@
   become: true
 
   tasks:
-    - name: install htop
+    - name: installing htop
       package: 
         name: htop
