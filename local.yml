@@ -8,7 +8,6 @@
       package: 
         name: 
           - htop
-            #:- cowsay
           - stow
           - python3-psutil
 
@@ -23,7 +22,7 @@
       become_user: gato
       dconf: 
         key: "org/gnome/desktop/background/picture-uri" 
-        value: "'file:///usr/share/backgrounds/ansible-wallpaper.png'"
+        value: "'file:///usr/share/backgrounds/ansible-wallpaper.jpg'"
 
     - name: set wallpaper 
       become_user: gato
