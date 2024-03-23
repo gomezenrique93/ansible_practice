@@ -8,24 +8,43 @@
       package: 
         name: 
           - htop
+          - git
+          - curl
+          - wget
           - stow
           - python3-psutil
+          - clamav
+          - clamav-daemon
+          - ubuntu-restricted-extras
+          - gstreamer1.0-plugins-bad 
+          - gstreamer1.0-plugins-ugly 
+          - gstreamer1.0-plugins-good 
+	      - libavcodec-extra 
+          - gstreamer1.0-libav 
+          - chromium-codecs-ffmpeg-extra 
+          - libdvd-pkg 
+          - libfuse2 
+          - virtualbox 
+          - virtualbox-ext-pack 
+          - xclip 
+          - gimp 
+          - vlc
 
-    - name: copy wallpaper file
-      copy:
-        src: files/wallpaper.jpg 
-        dest: /usr/share/backgrounds/cat-wallpaper.jpg
-        owner: root
-        group: root
-
-    - name: set wallpaper
-      become_user: gato
-      dconf: 
-        key: "org/gnome/desktop/background/picture-uri" 
-        value: "'file:///usr/share/backgrounds/cat-wallpaper.jpg'"
-
-    - name: set wallpaper 
-      become_user: gato
-      dconf: 
-        key: "/org/gnome/desktop/background/picture-options"
-        value: "'zoom'"
+    # - name: copy wallpaper file
+    #   copy:
+    #     src: files/wallpaper.jpg 
+    #     dest: /usr/share/backgrounds/cat-wallpaper.jpg
+    #     owner: root
+    #     group: root
+    #
+    # - name: set wallpaper
+    #   become_user: gato
+    #   dconf: 
+    #     key: "org/gnome/desktop/background/picture-uri" 
+    #     value: "'file:///usr/share/backgrounds/cat-wallpaper.jpg'"
+    #
+    # - name: set wallpaper 
+    #   become_user: gato
+    #   dconf: 
+    #     key: "/org/gnome/desktop/background/picture-options"
+    #     value: "'zoom'"
