@@ -4,6 +4,8 @@
   become: true
 
   tasks:
-    - name: installing htop
+    - name: Installing apt packages
       package: 
-        name: htop
+        name: 
+          - htop
+          - cowsay
