@@ -22,7 +22,7 @@
       become_user: gato
       dconf: 
         key: "org/gnome/desktop/background/picture-uri" 
-        value: "'file:///usr/share/backgrounds/ansible-wallpaper.jpg'"
+        value: "'file:///usr/share/backgrounds/cat-wallpaper.jpg'"
 
     - name: set wallpaper 
       become_user: gato
