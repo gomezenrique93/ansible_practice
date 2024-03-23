@@ -49,3 +49,10 @@
     #   dconf: 
     #     key: "/org/gnome/desktop/background/picture-options"
     #     value: "'zoom'"
+
+    - name: copy .zshrc file
+      copy: 
+      src: files/zshrc
+      dest: /home/gato/.zshrc
+      owner: gato
+      group: gato
