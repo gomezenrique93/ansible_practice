@@ -1,0 +1,12 @@
+---
+
+  hosts: local
+  become: true
+  connection: local
+  tasks:
+
+  - name: install wireshark
+    apt: 
+      name: wireshark
+
+
