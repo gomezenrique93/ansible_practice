@@ -7,6 +7,7 @@
     - name: Installing apt packages
       package: 
         name: 
+        state: "present"
           - htop
           - git
           - curl
@@ -31,6 +32,11 @@
           - xclip 
           - gimp 
           - vlc
+          - ninja-build
+          - gettext
+          - cmake
+          - unzip
+          - build-essential
 
     # - name: copy wallpaper file
     #   copy:
@@ -64,4 +70,4 @@
         dest: /home/gato/.tmux.conf
         owner: gato
         group: gato
-
+          
