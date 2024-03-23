@@ -29,3 +29,4 @@
   become_user: gato
   dconf: 
     key: "/org/gnome/desktop/background/picture-options"
+    value: "'zoom'"
