@@ -10,6 +10,7 @@
           - htop
           - git
           - curl
+          - tmux
           - tree
           - wget
           - stow
@@ -52,7 +53,15 @@
 
     - name: copy .zshrc file
       copy: 
-      src: files/zshrc
-      dest: /home/gato/.zshrc
-      owner: gato
-      group: gato
+        src: files/zshrc
+        dest: /home/gato/.zshrc
+        owner: gato
+        group: gato
+
+    - name: copy .tmux.conf file
+      copy: 
+        src: files/tmux.conf
+        dest: /home/gato/.tmux.conf
+        owner: gato
+        group: gato
+
