@@ -36,7 +36,6 @@
           - cmake
           - unzip
           - build-essential
-        state: "present"
 
     # - name: copy wallpaper file
     #   copy:
