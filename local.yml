@@ -4,9 +4,9 @@
   become: true
 
   tasks:
-    - name: Installing apt packages
-      package: 
-        name: 
+   - name: Installing apt packages
+     package: 
+       name: 
          - htop
          - git
          - curl
