@@ -7,7 +7,6 @@
     - name: Installing apt packages
       package: 
         name: 
-        state: "present"
           - htop
           - git
           - curl
@@ -37,6 +36,7 @@
           - cmake
           - unzip
           - build-essential
+        state: "present"
 
     # - name: copy wallpaper file
     #   copy:
