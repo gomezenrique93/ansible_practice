@@ -4,38 +4,38 @@
   become: true
 
   tasks:
-   - name: Installing apt packages
-     package: 
-       name: 
-         - htop
-         - git
-         - curl
-         - tmux
-         - tree
-         - wget
-         - stow
-         - python3-psutil
-         - clamav
-         - clamav-daemon
-         - ubuntu-restricted-extras
-         - gstreamer1.0-plugins-bad 
-         - gstreamer1.0-plugins-ugly 
-         - gstreamer1.0-plugins-good 
-	 - libavcodec-extra 
-         - gstreamer1.0-libav 
-         - chromium-codecs-ffmpeg-extra 
-         - libdvd-pkg 
-         - libfuse2 
-         - virtualbox 
-         - virtualbox-ext-pack 
-         - xclip 
-         - gimp 
-         - vlc
-         - ninja-build
-         - gettext
-         - cmake
-         - unzip
-         - build-essential
+  - name: Installing apt packages
+    package: 
+      name: 
+        - htop
+        - git
+        - curl
+        - tmux
+        - tree
+        - wget
+        - stow
+        - python3-psutil
+        - clamav
+        - clamav-daemon
+        - ubuntu-restricted-extras
+        - gstreamer1.0-plugins-bad 
+        - gstreamer1.0-plugins-ugly 
+        - gstreamer1.0-plugins-good 
+	- libavcodec-extra 
+        - gstreamer1.0-libav 
+        - chromium-codecs-ffmpeg-extra 
+        - libdvd-pkg 
+        - libfuse2 
+        - virtualbox 
+        - virtualbox-ext-pack 
+        - xclip 
+        - gimp 
+        - vlc
+        - ninja-build
+        - gettext
+        - cmake
+        - unzip
+        - build-essential
 
     # - name: copy wallpaper file
     #   copy:
