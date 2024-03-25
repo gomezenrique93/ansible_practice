@@ -31,18 +31,11 @@
        - xclip 
        - gimp 
        - vlc
-
-  - name: Installing apt-get packages
-    apt:
-      name: 
-      state: present
        - ninja-build
        - gettext
        - cmake
        - unzip
        - build-essential
-      force_apt_get: yes
-
 
   - name: copy .zshrc file
     copy: 
