@@ -37,36 +37,17 @@
        - unzip
        - build-essential
 
-    # -name: copy wallpaper file
-    #   copy:
-    #     src: files/wallpaper.jpg 
-    #     dest: /usr/share/backgrounds/cat-wallpaper.jpg
-    #     owner: root
-    #     group: root
-    #
-    # - name: set wallpaper
-    #   become_user: gato
-    #   dconf: 
-    #     key: "org/gnome/desktop/background/picture-uri" 
-    #     value: "'file:///usr/share/backgrounds/cat-wallpaper.jpg'"
-    #
-    # - name: set wallpaper 
-    #   become_user: gato
-    #   dconf: 
-    #     key: "/org/gnome/desktop/background/picture-options"
-    #     value: "'zoom'"
+  - name: copy .zshrc file
+    copy: 
+     src: files/zshrc
+     dest: /home/gato/.zshrc
+     owner: gato
+     group: gato
 
-    - name: copy .zshrc file
-      copy: 
-        src: files/zshrc
-        dest: /home/gato/.zshrc
-        owner: gato
-        group: gato
+  - name: copy .tmux.conf
+    copy: 
+     src: files/tmux.conf
+     dest: /home/gato/.tmux.conf
+     owner: gato
+     group: gato
 
-    - name: copy .tmux.conf file
-      copy: 
-        src: files/tmux.conf
-        dest: /home/gato/.tmux.conf
-        owner: gato
-        group: gato
-          
