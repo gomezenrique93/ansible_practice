@@ -47,7 +47,7 @@
   - name: copy .tmux.conf
     copy: 
      src: files/tmux.conf
-     dest: /home/gato/tmux/tmux.conf
+     dest: /home/gato/.config/tmux/tmux.conf
      owner: gato
      group: gato
 
