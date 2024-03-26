@@ -16,7 +16,7 @@
        - stow
        - python3-psutil
        - clamav
-       - clamav-daemo
+       - clamav-daemon
        - ubuntu-restricted-extras
        - gstreamer1.0-plugins-bad 
        - gstreamer1.0-plugins-ugly 
