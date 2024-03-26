@@ -36,6 +36,7 @@
        - cmake
        - unzip
        - build-essential
+       - npm
 
   - name: copy .zshrc file
     copy: 
