@@ -41,14 +41,14 @@
   - name: copy .zshrc file
     copy: 
      src: files/zshrc
-     dest: /home/gato/.zshrc
+     dest: ~/.zshrc
      owner: gato
      group: gato
 
   - name: copy .tmux.conf
     copy: 
      src: files/tmux.conf
-     dest: /home/gato/.config/tmux/tmux.conf
+     dest: ~/.tmux.conf
      owner: gato
      group: gato
 
