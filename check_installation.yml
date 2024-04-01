@@ -1,4 +1,5 @@
 ---
+# This scripts checks to see if packages are installed.
 - hosts: localhost
   vars:
     package_names:
