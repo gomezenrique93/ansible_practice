@@ -54,7 +54,7 @@
   - name: Folder Exists
     debug: 
       msg: "The folder exists"
-    when: folder_exists.stat.exists and folder_exists.stat.isdir
+    when: folder_exists.stat.exists 
 
   # - name: Folder Does Not Exist
   #   debug: 
