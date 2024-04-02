@@ -11,9 +11,9 @@
        state: present
        update_cache: yes
       become: true
+
     - name: Make sure zsh is the default shell 
       user:
-        owner: gato
-        group: gato
-        shell: chsh -s "usr/bin/zsh"
+        name: gato
+        shell: "/usr/bin/zsh"
       become: true
