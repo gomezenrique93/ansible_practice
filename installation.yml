@@ -39,6 +39,28 @@
        - build-essential
        - npm
 
+    # Make sure that the fonts directory is there
+  # - name: Ensure fonts directory is created
+  #   ansible.builtin.file: 
+  #    path: ~/.local/share/fonts
+  #    state: directory
+  #    mode: 0755
+  
+  - name: Folder Check
+    stat: 
+      path: "/.local/share/fonts/"
+    register: folder_exists
+
+  - name: Folder Exists
+    debug: 
+      msg: "The folder exists"
+    when: folder_exists.stat.exists and folder_exists.stat.isdir
+
+  # - name: Folder Does Not Exist
+  #   debug: 
+  #     msg: "The file or directory does not exist"
+  #   when: not folder_exists.stat.exists
+
     # Installs zsh if not already installed
   - name: Make sure that zsh is installed
     apt: 
