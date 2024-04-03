@@ -54,6 +54,10 @@
       dest: "/home/gato/.local/share/fonts/"
       remote_src: yes
 
+  # This will refresh the font cache
+  - name: Refresh font cache
+    shell: fc-cache -f -v
+
   # Installs zsh if not already installed
   - name: Make sure that zsh is installed
     apt: 
