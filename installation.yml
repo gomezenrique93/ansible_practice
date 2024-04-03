@@ -90,6 +90,14 @@
      owner: gato
      group: gato
 
+  # Copy the .zshrc file to home directory
+- name: copy tmux-sessionizer
+    copy: 
+     src: files/tmux-sessionizer
+     dest: "~/.local/bin/tmux-sessionizer"
+     owner: gato
+     group: gato
+
   # Copy the .tmux.conf file to the home directory
   - name: copy .tmux.conf
     copy: 
