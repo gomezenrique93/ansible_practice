@@ -91,7 +91,7 @@
      group: gato
 
   # Copy the tmux-sessionizer to .local/bin
-- name: copy tmux-sessionizer
+  - name: copy tmux-sessionizer
     copy: 
      src: files/tmux-sessionizer
      dest: "~/.local/bin/tmux-sessionizer"
