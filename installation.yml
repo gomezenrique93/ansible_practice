@@ -94,7 +94,7 @@
   - name: copy tmux-sessionizer
     copy: 
      src: files/tmux-sessionizer
-     dest: "~/.local/bin/tmux-sessionizer"
+     dest: "/home/gato/.local/bin/tmux-sessionizer"
      owner: gato
      group: gato
 
