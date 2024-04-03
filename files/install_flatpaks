@@ -1,0 +1,8 @@
+#!/bin/bash
+
+flatpaks=(us.zoom.Zoom com.discordapp.Discord com.spotify.Client com.bitwarden.desktop)
+
+for paks in $flatpaks
+do 
+    flatpak install -y paks
+done
