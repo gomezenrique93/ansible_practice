@@ -38,30 +38,23 @@
        - unzip
        - build-essential
        - npm
+       - python3.11-venv
 
-    # Make sure that the fonts directory is there
-  # - name: Ensure fonts directory is created
-  #   ansible.builtin.file: 
-  #    path: ~/.local/share/fonts
-  #    state: directory
-  #    mode: 0755
+  # Make sure that the fonts directory is there
+  - name: Ensure fonts directory is created
+    file:
+     path: "/home/gato/.local/share/fonts/"
+     state: directory
+     mode: "0755"
   
-  - name: Folder Check
-    stat: 
-      path: "/.local/share/fonts/"
-    register: folder_exists
+  # This will install the Proto nerd font
+  - name: Download Nerd Font
+    unarchive: 
+      src: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/0xProto.zip 
+      dest: "/home/gato/.local/share/fonts/"
+      remote_src: yes
 
-  - name: Folder Exists
-    debug: 
-      msg: "The folder exists"
-    when: folder_exists.stat.exists 
-
-  # - name: Folder Does Not Exist
-  #   debug: 
-  #     msg: "The file or directory does not exist"
-  #   when: not folder_exists.stat.exists
-
-    # Installs zsh if not already installed
+  # Installs zsh if not already installed
   - name: Make sure that zsh is installed
     apt: 
      name: zsh
@@ -69,27 +62,27 @@
      update_cache: yes
     become: true
 
-    # Switches the default shell to zsh
-    # Make sure to log back out and back in
+  # Switches the default shell to zsh
+  # Make sure to log back out and back in
   - name: Make sure zsh is the default shell 
     user:
       name: gato
       shell: "/usr/bin/zsh"
     become: true
     
-    # Download Zsh
+  # Download Zsh
   - name: Download Oh My Zsh installation script
     get_url:
       url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
       dest: /tmp/install_ohmyzsh.sh
 
-    # Run ZSH install script
+  # Run ZSH install script
   - name: Run Oh My Zsh installation script
     command: sh /tmp/install_ohmyzsh.sh --unattended
     register: ohmyzsh_result
     failed_when: "'FAILED' in ohmyzsh_result.stderr"
 
-    # Copy the .zshrc file to home directory
+  # Copy the .zshrc file to home directory
   - name: copy .zshrc file
     copy: 
      src: files/zshrc
@@ -97,7 +90,7 @@
      owner: gato
      group: gato
 
-    # Copy the .tmux.conf file to the home directory
+  # Copy the .tmux.conf file to the home directory
   - name: copy .tmux.conf
     copy: 
      src: files/tmux.conf
