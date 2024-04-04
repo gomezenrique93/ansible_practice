@@ -30,7 +30,6 @@
        - virtualbox 
        - virtualbox-ext-pack 
        - xclip 
-       - gimp 
        - vlc
        - ninja-build
        - gettext
@@ -40,36 +39,36 @@
        - npm
        - python3.11-venv
 
-  # # Make sure that the Applicatons directory is created
-  # - name: Create Applications directory
-  #   file:
-  #    path: "/home/gato/Applications"
-  #    state: directory
-  #    mode: "0755"
+  # Make sure that the Applicatons directory is created
+  - name: Create Applications directory
+    file:
+     path: "/home/gato/Applications"
+     state: directory
+     mode: "0755"
 
-  # Download Joplin 
+  # Download Joplin
   - name: Install Joplin
     become: yes
     get_url:
-     url: https://objects.joplinusercontent.com/v2.14.20/Joplin-2.14.20.AppImage?source=JoplinWebsite&type=New
-     dest: "/home/gato/Applications"
-     mode: a+x
-
-  # Download Obsidian
-  - name: Install Obsidian
-    become: yes
-    get_url:
-     url: https://github.com/obsidianmd/obsidian-releases/releases/download/v1.5.12/Obsidian-1.5.12.AppImage 
-     dest: "/home/gato/Applications"
-     mode: a+x
+       url: https://objects.joplinusercontent.com/v2.14.20/Joplin-2.14.20.AppImage?source=JoplinWebsite&type=New 
+       dest: "/home/gato/Applications"
+       mode: a+x
 
   # Download Bitwarden
   - name: Install Bitwarden
     become: yes
     get_url:
-     url: https://vault.bitwarden.com/download/?app=desktop&platform=linux
-     dest: "/home/gato/Applications"
-     mode: a+x
+       url: https://vault.bitwarden.com/download/?app=desktop&platform=linux
+       dest: "/home/gato/Applications"
+       mode: a+x
+
+  # Download Flatpaks
+  - name: Install Flatpak Packages
+    community.general.flatpak:
+      name:
+        - com.discordapp.Discord
+        - md.obsidian.Obsidian
+        - org.gimp.GIMP
 
   # # # Make sure that the fonts directory is there
   # # - name: Create fonts directory
