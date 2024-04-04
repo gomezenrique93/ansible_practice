@@ -38,8 +38,27 @@
        - build-essential
        - npm
        - python3.11-venv
+       - libglib2.0-0
+       - libgstreamer-plugins-base0.10-0 
+       - libxcb-shape0
+       - libxcb-shm0
+       - libxcb-xfixes0
+       - libxcb-randr0
+       - libxcb-image0
+       - libfontconfig1
+       - libgl1-mesa-glx
+       - libxi6
+       - libsm6
+       - libxrender1
+       - libpulse0
+       - libxcomposite1
+       - libxslt1.1
+       - libsqlite3-0
+       - libxcb-keysyms1
+       - libxcb-xtest0
+       - ibus 
 
-  # This will refresh the font cache
+  # This will reconfigure dvd settings
   - name: Reconfigure DVD Stuff
     shell: dpkg-reconfigure libdvd-pkg
 
@@ -65,6 +84,15 @@
        url: https://vault.bitwarden.com/download/?app=desktop&platform=linux
        dest: "/home/gato/Applications"
        mode: a+x
+
+  - name: Download Zoom
+    become: yest
+    get_url: 
+      url: https://zoom.us/client/5.17.11.3835/zoom_amd64.deb
+      dest: "/home/gato/Downloads"
+
+  - name: Install Zoom
+    command: apt install zoom_amd64.deb -y
 
   # Download Flatpaks
   - name: Install Flatpak Packages
