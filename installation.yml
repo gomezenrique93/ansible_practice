@@ -39,6 +39,10 @@
        - npm
        - python3.11-venv
 
+  # This will refresh the font cache
+  - name: Reconfigure DVD Stuff
+    shell: dpkg-reconfigure libdvd-pkg
+
   # Make sure that the Applicatons directory is created
   - name: Create Applications directory
     file:
@@ -70,20 +74,20 @@
         - md.obsidian.Obsidian
         - org.gimp.GIMP
 
-  # # # Make sure that the fonts directory is there
-  # # - name: Create fonts directory
-  # #   file:
-  # #    path: "/home/gato/.local/share/fonts/"
-  # #    state: directory
-  # #    mode: "0755"
-  # # 
-  # # This will install the Proto nerd font
-  # - name: Download Nerd Font
-  #   unarchive: 
-  #     src: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/0xProto.zip 
-  #     dest: "/home/gato/.local/share/fonts/"
-  #     remote_src: yes
-  #
+  # Make sure that the fonts directory is there
+  - name: Create fonts directory
+    file:
+     path: "/home/gato/.local/share/fonts/"
+     state: directory
+     mode: "0755"
+   
+  # This will install the Proto nerd font
+  - name: Download Nerd Font
+    unarchive: 
+      src: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/0xProto.zip 
+      dest: "/home/gato/.local/share/fonts/"
+      remote_src: yes
+
   # This will refresh the font cache
   - name: Refresh font cache
     shell: fc-cache -f -v
