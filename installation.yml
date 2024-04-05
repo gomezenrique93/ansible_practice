@@ -39,14 +39,12 @@
        - npm
        - python3.11-venv
        - libglib2.0-0
-       - libgstreamer-plugins-base0.10-0 
        - libxcb-shape0
        - libxcb-shm0
        - libxcb-xfixes0
        - libxcb-randr0
        - libxcb-image0
        - libfontconfig1
-       - libgl1-mesa-glx
        - libxi6
        - libsm6
        - libxrender1
@@ -62,6 +60,18 @@
   - name: Reconfigure DVD Stuff
     shell: dpkg-reconfigure libdvd-pkg
 
+  # Install Gnome Terminal theme
+  - name: Install Dracula Gnome Theme
+    git: 
+      repo: https://github.com/dracula/gnome-terminal
+      dest: "/home/gato/"
+      clone: yes
+      update: yes
+
+  # Change Gnome Terminal theme
+  - name: Change Terminal to Dracula
+    command: sh /home/gato/gnome-terminal/install.sh
+
   # Make sure that the Applicatons directory is created
   - name: Create Applications directory
     file:
@@ -69,38 +79,38 @@
      state: directory
      mode: "0755"
 
-  # Download Joplin
-  - name: Install Joplin
-    become: yes
-    get_url:
-       url: https://objects.joplinusercontent.com/v2.14.20/Joplin-2.14.20.AppImage?source=JoplinWebsite&type=New 
-       dest: "/home/gato/Applications"
-       mode: a+x
+  # # Download Joplin
+  # - name: Install Joplin
+  #   become: yes
+  #   get_url:
+  #      url: https://objects.joplinusercontent.com/v2.14.20/Joplin-2.14.20.AppImage?source=JoplinWebsite&type=New 
+  #      dest: "/home/gato/Applications"
+  #      mode: a+x
 
-  # Download Bitwarden
-  - name: Install Bitwarden
-    become: yes
-    get_url:
-       url: https://vault.bitwarden.com/download/?app=desktop&platform=linux
-       dest: "/home/gato/Applications"
-       mode: a+x
+  # # Download Bitwarden
+  # - name: Install Bitwarden
+  #   become: yes
+  #   get_url:
+  #      url: https://vault.bitwarden.com/download/?app=desktop&platform=linux
+  #      dest: "/home/gato/Applications"
+  #      mode: a+x
 
-  - name: Download Zoom
-    become: yest
-    get_url: 
-      url: https://zoom.us/client/5.17.11.3835/zoom_amd64.deb
-      dest: "/home/gato/Downloads"
+  # - name: Download Zoom
+  #   become: yest
+  #   get_url: 
+  #     url: https://zoom.us/client/5.17.11.3835/zoom_amd64.deb
+  #     dest: "/home/gato/Downloads"
 
-  - name: Install Zoom
-    command: apt install zoom_amd64.deb -y
+  # - name: Install Zoom
+  #   command: apt install zoom_amd64.deb -y
 
-  # Download Flatpaks
-  - name: Install Flatpak Packages
-    community.general.flatpak:
-      name:
-        - com.discordapp.Discord
-        - md.obsidian.Obsidian
-        - org.gimp.GIMP
+  # # Download Flatpaks
+  # - name: Install Flatpak Packages
+  #   community.general.flatpak:
+  #     name:
+  #       - com.discordapp.Discord
+  #       - md.obsidian.Obsidian
+  #       - org.gimp.GIMP
 
   # Make sure that the fonts directory is there
   - name: Create fonts directory
@@ -147,6 +157,22 @@
     command: sh /tmp/install_ohmyzsh.sh --unattended
     register: ohmyzsh_result
     failed_when: "'FAILED' in ohmyzsh_result.stderr"
+
+  # Install zsh-syntax-highlighting
+  - name: Installs zsh-syntax-highlighting
+    git: 
+      repo: https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+      dest: /home/gato/.oh-my-zsh/custom/plugins
+      clone: yes
+      update: yes
+
+  # Install zsh-autosuggestions
+  - name: Installs zsh-autosuggestions
+    git: 
+      repo: https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+      dest: /home/gato/.oh-my-zsh/custom/plugins
+      clone: yes
+      update: yes
 
   # Copy the .zshrc file to home directory
   - name: copy .zshrc file
