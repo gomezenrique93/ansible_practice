@@ -79,38 +79,38 @@
      state: directory
      mode: "0755"
 
-  # # Download Joplin
-  # - name: Install Joplin
-  #   become: yes
-  #   get_url:
-  #      url: https://objects.joplinusercontent.com/v2.14.20/Joplin-2.14.20.AppImage?source=JoplinWebsite&type=New 
-  #      dest: "/home/gato/Applications"
-  #      mode: a+x
-
-  # # Download Bitwarden
-  # - name: Install Bitwarden
-  #   become: yes
-  #   get_url:
-  #      url: https://vault.bitwarden.com/download/?app=desktop&platform=linux
-  #      dest: "/home/gato/Applications"
-  #      mode: a+x
-
-  # - name: Download Zoom
-  #   become: yest
-  #   get_url: 
-  #     url: https://zoom.us/client/5.17.11.3835/zoom_amd64.deb
-  #     dest: "/home/gato/Downloads"
-
-  # - name: Install Zoom
-  #   command: apt install zoom_amd64.deb -y
-
-  # # Download Flatpaks
-  # - name: Install Flatpak Packages
-  #   community.general.flatpak:
-  #     name:
-  #       - com.discordapp.Discord
-  #       - md.obsidian.Obsidian
-  #       - org.gimp.GIMP
+  # download joplin
+  - name: install joplin
+    become: yes
+    get_url:
+       url: https://objects.joplinusercontent.com/v2.14.20/joplin-2.14.20.appimage?source=joplinwebsite&type=new 
+       dest: "/home/gato/applications"
+       mode: a+x
+  
+  # download bitwarden
+  - name: install bitwarden
+    become: yes
+    get_url:
+       url: https://vault.bitwarden.com/download/?app=desktop&platform=linux
+       dest: "/home/gato/applications"
+       mode: a+x
+  
+  - name: download zoom
+    become: yes
+    get_url: 
+      url: https://zoom.us/client/5.17.11.3835/zoom_amd64.deb
+      dest: "/home/gato/downloads"
+  
+  - name: install zoom
+    command: apt install -y home/gato/downloads/zoom_amd64.deb 
+  
+  # download flatpaks
+  - name: install flatpak packages
+    community.general.flatpak:
+      name:
+        - com.discordapp.discord
+        - md.obsidian.obsidian
+        - org.gimp.GIMP
 
   # Make sure that the fonts directory is there
   - name: Create fonts directory
