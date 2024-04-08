@@ -84,7 +84,7 @@
     become: yes
     get_url:
        url: https://objects.joplinusercontent.com/v2.14.20/joplin-2.14.20.appimage?source=joplinwebsite&type=new 
-       dest: "/home/gato/applications"
+       dest: "/home/gato/Applications"
        mode: a+x
   
   # download bitwarden
@@ -92,7 +92,7 @@
     become: yes
     get_url:
        url: https://vault.bitwarden.com/download/?app=desktop&platform=linux
-       dest: "/home/gato/applications"
+       dest: "/home/gato/Applications"
        mode: a+x
   
   - name: download zoom
