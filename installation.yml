@@ -12,6 +12,7 @@
        - tmux
        - tree
        - stow
+       - nvim
   
   # Install Gnome Terminal theme
   - name: Install Dracula Gnome Theme
@@ -36,7 +37,7 @@
   - name: install joplin
     become: yes
     get_url:
-       url: https://objects.joplinusercontent.com/v2.14.20/joplin-2.14.20.appimage?source=joplinwebsite&type=new 
+       url: https://objects.joplinusercontent.com/v2.14.20/joplin-2.14.20.appimage?source=joplinwebsite&type=new  
        dest: "/home/gato/Applications"
        mode: a+x
   
