@@ -9,53 +9,11 @@
     package: 
       name: 
        - htop
-       - git
        - curl
        - tmux
        - tree
-       - wget
        - stow
-       - python3-psutil
-       - clamav
-       - clamav-daemon
-       - ubuntu-restricted-extras
-       - gstreamer1.0-plugins-bad 
-       - gstreamer1.0-plugins-ugly 
-       - gstreamer1.0-plugins-good 
-       - libavcodec-extra 
-       - gstreamer1.0-libav 
-       - chromium-codecs-ffmpeg-extra 
-       - libdvd-pkg 
-       - libfuse2 
-       - virtualbox 
-       - virtualbox-ext-pack 
-       - xclip 
-       - vlc
-       - ninja-build
-       - gettext
-       - cmake
-       - unzip
-       - build-essential
-       - npm
-       - python3.11-venv
-       - libglib2.0-0
-       - libxcb-shape0
-       - libxcb-shm0
-       - libxcb-xfixes0
-       - libxcb-randr0
-       - libxcb-image0
-       - libfontconfig1
-       - libxi6
-       - libsm6
-       - libxrender1
-       - libpulse0
-       - libxcomposite1
-       - libxslt1.1
-       - libsqlite3-0
-       - libxcb-keysyms1
-       - libxcb-xtest0
-       - ibus 
-
+        
   # This will reconfigure dvd settings
   - name: Reconfigure DVD Stuff
     shell: dpkg-reconfigure libdvd-pkg
