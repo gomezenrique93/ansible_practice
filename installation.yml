@@ -5,19 +5,14 @@
 
   # This installs the necessary apt packages
   tasks:
-  - name: Installing apt packages
+  - name: Installing packages
     package: 
       name: 
        - htop
-       - curl
        - tmux
        - tree
        - stow
-        
-  # This will reconfigure dvd settings
-  - name: Reconfigure DVD Stuff
-    shell: dpkg-reconfigure libdvd-pkg
-
+  
   # Install Gnome Terminal theme
   - name: Install Dracula Gnome Theme
     git: 
